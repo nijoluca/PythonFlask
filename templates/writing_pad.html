@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Writing Pad</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        textarea {
+            width: 80%;
+            height: 200px;
+            margin: 20px auto;
+            display: block;
+        }
+        .highlight {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <h1>Writing Pad</h1>
+    <form action="/save" method="post">
+        <label for="content">Write here:</label>
+        <br>
+        <textarea id="content" name="content" required>{{ content }}</textarea>
+        <br>
+        <input type="submit" value="Save">
+    </form>
+    <br>
+    <div>
+        <strong>Your Content:</strong>
+        <div>{{ content | safe }}</div>
+    </div>
+    <br>
+    <div>
+        <strong>Highlighted Mistakes:</strong>
+        <div>{{ highlighted_content | safe }}</div>
+    </div>
+</body>
+</html>
